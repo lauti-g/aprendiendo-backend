@@ -1,5 +1,7 @@
 import app from 'express'
 const router = app.Router()
+import { pool } from '../../DB/connectDB.js'
+
 
 router.get('/', (req, res)=>{
 	res.render("firstPage")
