@@ -3,25 +3,28 @@ import router from './router/routes.js'
 import path from 'path'
 import 'ejs'
 import { fileURLToPath } from 'url';
-
+import cors from 'cors'; 
 
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 
 
-app.use(express.static(path.join(dirname, 'public')));
+app.use(express.static(path.join(dirname, 'front', 'public')));
 app.set('views', path.join(dirname, 'views'))
 app.set('view engine', 'ejs')
-
+app.use(express.json())
+app.use(cors());
 
 
 
 app.get('/', router)
 app.get('/registration', router)
-app.get('/signIn', router)
-app.get('/home', router)
-
+app.post('/registration', router)
+app.get('/changeUsername', router)
+app.get('/deleteUser', router)
+app.delete('/deleteUser', router)
+app.put('/changeUsername', router)
 
 
 app.listen(3000)
