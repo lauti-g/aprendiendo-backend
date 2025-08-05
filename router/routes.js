@@ -79,17 +79,6 @@ router.delete('/deleteUser',async (req,res)=>{
 		pool.query(`DELETE  FROM users WHERE id = ${idUser[0][0].id} `)
 		res.send(`usuario ${username} borrado`)
 	}
-
-
-
-
-
-
-
-
-
-
-	
 })
 
 router.put('/changeUsername', async (req, res)=>{
